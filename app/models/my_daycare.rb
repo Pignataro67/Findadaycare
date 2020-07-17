@@ -1,0 +1,2 @@
+class MyDaycare < ApplicationRecord
+end

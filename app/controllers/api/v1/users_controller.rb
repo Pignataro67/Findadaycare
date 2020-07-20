@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :get_user, only: [:show, :update, :destroy]
 
   def show
-    render json: @user
+    render json: @user, each_serializer :MyDaycareSerializer
   end
 
   private

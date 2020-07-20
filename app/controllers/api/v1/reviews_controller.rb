@@ -14,4 +14,17 @@ class Api::V1::ReviewsController < ApplicationController
   def create
     @review = Review.create(params[:review_params]) 
   end
+
+  private
+  def get_review
+    @review = Review.find(params[:id])
+  end
+
+  def get_user
+    @user = User.find(params[:user_id])
+  end
+
+  def review_params
+    params.require(:review).permit(:user_id, :daycare_id, :notes, :schedule_visit, :favorite)
+  end
 end

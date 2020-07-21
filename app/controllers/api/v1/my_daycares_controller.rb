@@ -4,11 +4,13 @@ class Api::V1::MyDaycaresController < ApplicationController
 
   def index 
     @my_daycares = MyDaycare.all
-    render json: @my_daycares
+    my_daycares_json = MyDaycareSerializer.new(@my_daycares).serialized_json
+    render json: my_daycares_json
   end
 
   def show
-    render json: @my_daycare
+    my_daycare_json = MyDaycareSerializer.new(@my_daycare).serialized_json
+    render json: my_daycare_json
   end
 
   def create

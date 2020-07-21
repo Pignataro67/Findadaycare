@@ -2,8 +2,9 @@ Class Api::v1::DaycaresController < ApplicationController
   before_action :get_daycare, only [:show, :update, :destroy]
 
   def index
-    @daycare = Daycare.ApplicationController
-    render json: @daycare
+    @daycares = Daycare.all
+    daycares_json = DaycareSerializer.new(@daycares).serialized_json
+    render json: @daycares_json	        
   end
   
   private

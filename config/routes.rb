@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :api do
       resources :users do
-        resources :mydaycares 
+        resources :my_daycares 
       end
         resources :daycares
     end
   end
+  post '/api/v1/login', to: "api/v1/sessions#create"
+  get '/api/v1/get_current_user', to: "api/v1/sessions#get_current_user"
 end

@@ -36,6 +36,6 @@ Class Api::v1::DaycaresController < ApplicationController
   end
 
   def daycare_params
-    params.require(:daycare).permit(:name, :location, :rating, :review_count, :reviews, :yelp_id)
+    params.require(:daycare).permit(:name, :location, :rating, :review_count, :yelp_id, :phone)
   end
 end

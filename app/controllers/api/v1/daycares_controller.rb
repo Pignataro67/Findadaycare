@@ -7,6 +7,12 @@ Class Api::v1::DaycaresController < ApplicationController
     render json: @daycares_json	        
   end
   
+  def show
+    @daycare = Daycare.find_by(id: params[:id])
+    daycare_json = DaycareSerializer.new(@daycare).serialized_json
+    render json: daycare_json
+  end
+
   def create 
     daycare = Daycare.find_by(yelp_id: params[:daycare][:yelp_id])
     if !!daycare

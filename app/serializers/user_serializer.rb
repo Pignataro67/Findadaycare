@@ -9,7 +9,7 @@ class UserSerializer
         location: my_daycare.daycare.location,
         rating: my_daycare.daycare.rating,
         review_count: my_daycare.daycare.review_count,
-        reviews: my_daycare.daycare.reviews,
+        phone: my_daycare.daycare.phone,
         notes: my_daycare.notes,
         schedule_visit: my_daycare.schedule_visit,
         favorite: my_daycare.favorite

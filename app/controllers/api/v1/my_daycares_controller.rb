@@ -3,7 +3,7 @@ class Api::V1::MyDaycaresController < ApplicationController
   before_action :get_my_daycare, only: [:show, :update, :destroy]
 
   def index 
-    @my_daycares = MyDaycare.all
+    @my_daycares = @user.my_daycares
     my_daycares_json = MyDaycareSerializer.new(@my_daycares).serialized_json
     render json: my_daycares_json
   end
@@ -17,6 +17,19 @@ class Api::V1::MyDaycaresController < ApplicationController
     @my_daycare = MyDaycare.create(params[:my_daycare_params]) 
   end
 
+  def update
+    # binding.pry
+    if @my_daycare.update(my_daycare_params)
+      render json: @my_daycare
+    else
+      render json: @my_daycare.erros, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @my_daycare.destroy
+  end
+  
   private
 
   def get_user

@@ -20,9 +20,9 @@ class Api::V1::MyDaycaresController < ApplicationController
   def update
     # binding.pry
     if @my_daycare.update(my_daycare_params)
-      render json: @my_daycare
+      render json: @user
     else
-      render json: @my_daycare.erros, status: :unprocessable_entity
+      render json: @my_daycare.errors, status: :unprocessable_entity
     end
   end
 

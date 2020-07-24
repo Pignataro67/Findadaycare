@@ -1,10 +1,12 @@
 class UserSerializer 
   include FastJsonapi::ObjectSerializer
   attributes :id, :username, :email
-  attribute :my_daycares do |user|
 
+  attribute :my_daycares do |user|
     user.my_daycares.map do |my_daycare|
       {
+        id: my_daycare.id,
+        daycare_id: my_daycare.daycare.id,
         name: my_daycare.daycare.name,
         location: my_daycare.daycare.location,
         rating: my_daycare.daycare.rating,
